@@ -42,3 +42,60 @@ html,body{
     text-align: center;
     font-size: 20px
 }
+#maker #question{
+    height: 15vh;
+    width: 100%;
+    border: 2px solid #EEEEEE;
+    border-radius: 10px;
+    /* padding: 0px 10px; */
+    margin: 10px 0px;
+    overflow: hidden;
+}
+#question #ques{
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    color: #FFF;
+}
+#maker #options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+    width: 100%;
+    border: 2px solid #EEEEEE;
+    border-radius: 10px;
+} 
+#options input{
+    border: 2px solid red;
+    height: 100%;
+    width: 90%;
+    background-color: transparent;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    color: #FFF;
+}
+#first{
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+    margin: 10px 10px;
+    height: 12vh;
+    width: 90%;
+    border-radius: 10px;
+}
+#second{
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid black; */
+    margin: 10px 10px;
+    height: 12vh;
+    width: 90%;
+    border-radius: 10px;
+}
+
