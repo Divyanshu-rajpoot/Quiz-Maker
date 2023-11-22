@@ -2,7 +2,6 @@ let pointer = document.getElementById('circle')
 let generatequiz = document.getElementById('generate')
 generatequiz.addEventListener('click',()=>{
     console.log("clicked");
-    
 })
 document.addEventListener('mousemove',function(dets){
     let xdir = dets.x

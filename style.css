@@ -61,6 +61,10 @@ html,body{
     align-items: center;
     /* background-color: red; */
 }
+#btn a{
+    text-decoration: none;
+    color: #000;
+}
 #container #btn button{
     height: 10vh;
     width: 10vw;
@@ -72,10 +76,11 @@ html,body{
     font-weight: 500;
     background-color: #fff;
 }
-#container #btn button:hover{
-    
+
+/* #container #btn button:hover{
+
     mix-blend-mode: difference;
     background-color: transparent;
     color: #fff;
     transition: all 0.3s ease;
-}
+} */
