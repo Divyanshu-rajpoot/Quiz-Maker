@@ -1,0 +1,58 @@
+body{
+    background-color: #4ee4;
+}
+#login{
+    border: 2px solid black;
+    height: 60vh;
+    width: 30%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:150px auto ;
+}
+#enterusername{
+    height: 10vh;
+    width: 90%;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+#username{
+    height: 100%;
+    width: 40%;
+    background-color: transparent;
+    color: black;
+    border:none ;
+    font-size: 20px;
+    outline: none;
+}
+#enterid{
+    height: 10vh;
+    width: 90%;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+}
+#quizid{
+    height: 100%;
+    width: 40%;
+    background-color: transparent;
+    color: black;
+    border:none ;
+    font-size: 20px;
+    outline: none;
+}
+button{
+    width: 8vw;
+    height: 8vh;
+    border-radius: 10px;
+    margin: 5px auto;
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
