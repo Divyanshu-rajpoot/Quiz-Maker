@@ -9,6 +9,10 @@ html,body{
     height: 100%;
     width: 100%;
 }
+::placeholder{
+    color: #000;
+    opacity: 0.4;
+}
 #page1{
     height: 100vh;
     width: 100%;
@@ -16,13 +20,17 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 50px;
+}
+#page1 h1{
+    text-align: center;
 }
 #page1 img{
     height: 100%;
     width: 100%;
     object-fit: cover;
     position: absolute;
-    z-index: -1;
+    z-index:-1;
 }
 #login{
     height: 60vh;
@@ -35,6 +43,7 @@ html,body{
     padding: 10px 14px;
     border-radius: 13px;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px; 
+    backdrop-filter: blur(100px);
 }
 
 #enterusername{
