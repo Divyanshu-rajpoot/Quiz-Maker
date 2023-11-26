@@ -15,15 +15,17 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5vh;
-    width: 10vw;
-    border:1.5px solid #222;
+    gap: 8px;
+    height: 7vh;
+    width: 15vw;
+    border: 2px solid #222;
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translate(-50%,0%);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    backdrop-filter: blur(60px);
 }
 #page1{
     height: 100vh;
@@ -42,6 +44,7 @@ html,body{
     overflow: hidden;
     padding: 15px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    backdrop-filter: blur(75px);
 }
 #title input{
     height: 100%;
@@ -53,7 +56,7 @@ html,body{
     font-size: 20px;
     
 }
-#maker #question{
+#question{
     height: 15vh;
     width: 100%;
     border: none;
@@ -61,7 +64,10 @@ html,body{
     margin: 10px 0px;
     overflow: hidden;
      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding:1vw
 
 }
 #question #ques{
@@ -75,6 +81,7 @@ html,body{
     outline: none;
     text-transform: capitalize;
     cursor: pointer;
+    
     
 }
 #maker #options{
@@ -121,38 +128,49 @@ html,body{
 
 }
 
-#correct {
+#correct{
     height: 18vh;
     margin: 20px 0px ;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10vw;
-    border-radius: 10px;
+    /* border-radius: 15px; */
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-
+    /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
 }
 #correct button{
     height: 8vh;
     padding: 0px 16px;
-    background-color: #252422;
-    color: #fff;
+    background-color:transparent;
+    color: #000;
     border: none ;
     border-radius: 13px;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
+}
+#correct button:hover{
+    box-shadow:  -20px 20px 60px #bebebe,
+             20px -20px 60px #ffffff;
+    background-color: #000;
+    color: #fff;
+    transition: all 0.3s;
 }
 #correct input{
-    height: 8vh;
-    width: 30%;
+    height: 10vh;
+    width: 40%;
+    font-size: 1rem;
     text-align: center;
+    font-weight: 700;
     padding: 10px 15px;
     background-color: transparent;
-    color: #fff;
+    color: #000;
     border: none;
-    border-radius: 13px;
-    color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    outline: none;
+}
+::placeholder{
+    color: #000;
+    opacity: 0.8;
 }

@@ -1,4 +1,4 @@
-let idvalue = document.getElementsByTagName('h4')[0];
+let idvalue = document.getElementsByTagName('h4')[1];
 let optionA = document.getElementById('A');
 let optionB = document.getElementById('B');
 let optionC = document.getElementById('C');
@@ -7,6 +7,10 @@ let correctoption = document.getElementById('correctopt')
 let addQuestion = document.getElementById('addques');
 let question = document.getElementById('ques');
 let gentor = document.getElementById("generator")
+let counter = document.getElementById("count")
+var count = 2;
+
+
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
     let result = ' ';
@@ -38,11 +42,15 @@ addQuestion.addEventListener('click', async () => {
         })
     })
     const erase = document.querySelectorAll('input');
-    erase.forEach(input =>{
+    erase.forEach(input => {
         input.value = '';
     })
 })
-gentor.addEventListener("click",()=>{
+gentor.addEventListener("click", () => {
     location.href = "index.html"
+})
+addQuestion.addEventListener("click", () => {
+    counter.innerText = `Q${count}`
+    count++;
 })
 

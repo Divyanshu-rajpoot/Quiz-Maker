@@ -1,14 +1,12 @@
 let pointer = document.getElementById('circle')
-let generatequiz = document.getElementById('generate')
-generatequiz.addEventListener('click',()=>{
-    console.log("clicked");
+let generator = document.getElementById("generate");
+let attempted = document.getElementById("attempt");
+attempted.addEventListener("click",()=>{
+    location.href = "attempt2.html"
 })
-// document.addEventListener('mousemove',function(dets){
-//     let xdir = dets.x
-//     let ydir = dets.y                                // genrate a follower cursor on the page
-//     console.log(xdir)
-//     pointer.style.transform = `translate(${xdir+5}px,${ydir+5}px)`
-// })
+generator.addEventListener("click",()=>{
+    location.href = "quizcreate.html"
+})
 
 
 gsap.from( "#text h1", {
