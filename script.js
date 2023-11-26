@@ -3,12 +3,12 @@ let generatequiz = document.getElementById('generate')
 generatequiz.addEventListener('click',()=>{
     console.log("clicked");
 })
-document.addEventListener('mousemove',function(dets){
-    let xdir = dets.x
-    let ydir = dets.y                                // genrate a follower cursor on the page
-    console.log(xdir)
-    pointer.style.transform = `translate(${xdir+5}px,${ydir+5}px)`
-})
+// document.addEventListener('mousemove',function(dets){
+//     let xdir = dets.x
+//     let ydir = dets.y                                // genrate a follower cursor on the page
+//     console.log(xdir)
+//     pointer.style.transform = `translate(${xdir+5}px,${ydir+5}px)`
+// })
 
 
 gsap.from( "#text h1", {

@@ -6,6 +6,7 @@ let optionD = document.getElementById('D');
 let correctoption = document.getElementById('correctopt')
 let addQuestion = document.getElementById('addques');
 let question = document.getElementById('ques');
+let gentor = document.getElementById("generator")
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
     let result = ' ';
@@ -41,5 +42,7 @@ addQuestion.addEventListener('click', async () => {
         input.value = '';
     })
 })
-
+gentor.addEventListener("click",()=>{
+    location.href = "index.html"
+})
 
