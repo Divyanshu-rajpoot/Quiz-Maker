@@ -11,7 +11,7 @@
 <body>
     <div id="main">
         <div id="idval">
-            <h4></h4>
+            <h4 id="quizId"></h4>
         </div>
         <div id="page1">
             <div id="maker">
@@ -33,7 +33,7 @@
                 <div id="correct">
                     <input type="text" name="" id="correctopt" placeholder="ENTER CORRECT OPTION">
                     <button id="addques">Add Question</button>
-                    <button id="generator">Generate Quiz</button>
+                    <button id="generator" onclick="copyToClipboard()">Generate Quiz</button>
                 </div>
 
             </div>
@@ -44,5 +44,10 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="question.js"></script>
 </body>
+    <script>
+        function copyToClipboard() {
+            navigator.clipboard.writeText(document.getElementById('quizId').textContent);
+        }
+    </script>
 
 </html>
