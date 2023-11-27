@@ -126,7 +126,8 @@
         // checking if currentQuestionNumber is exceeding quiz length or not
         if (currentQuestionNumber >= quiz.length) {
             isQuizOver = true;
-            alert(`Quiz is over and your Score is ${score}`)
+            localStorage.setItem("score", score);
+            window.location.href("./result.html");
             return
         }
 
