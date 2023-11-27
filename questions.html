@@ -16,13 +16,16 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        background-image: url("https://as2.ftcdn.net/v2/jpg/02/56/16/25/1000_F_256162582_InY5MvcGtJFPqZIWj9tF6W43FHiQm8kv.jpg");
+        background-size:  cover ;
+        background-position: center ;
       }
 
       .container {
-        background-color: rgb(6, 6, 88);
         width: 70%;
         min-height: 50vh;
-        border: 2px solid yellowgreen;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         margin: 5rem auto;
         border-radius: 3rem;
         padding: 3rem 2rem;
@@ -30,11 +33,11 @@
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
+        backdrop-filter: blur(100px);
       }
 
       .options {
         display: flex;
-        color: rgb(160, 236, 8);
         justify-content: space-evenly;
         box-sizing: border-box;
         flex-wrap: wrap;
@@ -47,17 +50,24 @@
         margin: 1.5rem 0;
         text-align: center;
         font-size: 2rem;
-        background-color: wheat;
+        border-radius: 10px;
+        border: none;
+        background-color: rgb(201, 179, 245);
       }
 
       .controlling-buttons {
         display: flex;
         justify-content: space-around;
         height: 3rem;
+      
       }
       .controlling-buttons button {
-        font-size: 1.5rem;
+        font-size: 1rem;
         padding: 0.2rem 0.5rem;
+        border-radius: 10px;
+        background-color: black;
+        color: antiquewhite;
+        cursor: pointer;
       }
 
       #idContainer {
