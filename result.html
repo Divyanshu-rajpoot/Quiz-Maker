@@ -9,14 +9,21 @@
 </head>
 
 <body>
-    <p>Congratulations on completing the quiz! Here are your results.</p>
+    <p>Congratulations!! <br>Here are your results.</p>
     <div class="result-container">
         <h1>Quiz Result</h1>
-        <div class="score">Your Score: 85%</div>
+        <div id="score"></div>
         
     
     </div>
-
+    <script>
+        const scored = localStorage.getItem("score")
+        const questionNumber = localStorage.getItem("totalQuestions");
+        const finalScore = Number(scored/questionNumber)*100;
+        const dp = document.getElementById("score")
+        dp.innerText = `${finalScore}%`
+        
+    </script>
 </body>
 
 </html>

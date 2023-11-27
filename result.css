@@ -14,28 +14,29 @@ body {
 }
 
 .result-container {
-    height: 35vh;
-    width: 30%;
-    /* background-color: rgba(255, 255, 255, 0.8); */
+    height: 30vh;
+    width: 25%;
     border-radius: 8px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
     text-align: center;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(80px);
 }
 
 h1 {
-    color: #333;
+    color: #000;
 }
 
 p {
-    font-size: 2rem;
-    color: #555;
+    font-size: 30px;
+    color: royalblue;
+    font-weight: 600;
+    text-align: center;
 }
 
-.score {
-    font-size: 2em;
+#score {
+    font-size: 2rem;
     color: #27ae60;
     margin-bottom: 20px;
 }

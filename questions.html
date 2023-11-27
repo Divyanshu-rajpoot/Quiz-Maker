@@ -101,6 +101,7 @@
         <button id="nextQuestion" onclick="nextQuestion()">
           Submit and Next
         </button>
+        <button onclick="finalredict()">Finish</button>
       </div>
     </div>
   </body>
@@ -127,7 +128,8 @@
         if (currentQuestionNumber >= quiz.length) {
             isQuizOver = true;
             localStorage.setItem("score", score);
-            window.location.href("./result.html");
+            localStorage.setItem("totalQuestions", currentQuestionNumber);
+            window.location.href = "result.html";
             return
         }
 
@@ -181,5 +183,8 @@
       }
     }
     setQuestion();
+     function finalredict(){
+      location.href = "result.html"
+     }
   </script>
 </html>
