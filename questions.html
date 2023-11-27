@@ -1,11 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      body {
+        background-color: blue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        background-color: rgb(6, 6, 88);
+        width: 70%;
+        min-height: 50vh;
+        border: 2px solid yellowgreen;
+        margin: 5rem auto;
+        border-radius: 3rem;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+      }
+
+      .options {
+        display: flex;
+        color: rgb(160, 236, 8);
+        justify-content: space-evenly;
+        box-sizing: border-box;
+        flex-wrap: wrap;
+        margin: 2rem 0;
+      }
+
+      .options button {
+        min-height: 2.4rem;
+        width: 45%;
+        margin: 1.5rem 0;
+        text-align: center;
+        font-size: 2rem;
+        background-color: wheat;
+      }
+
+      .controlling-buttons {
+        display: flex;
+        justify-content: space-around;
+        height: 3rem;
+      }
+      .controlling-buttons button {
+        font-size: 1.5rem;
+        padding: 0.2rem 0.5rem;
+      }
+
+      #idContainer {
+        margin: auto;
+        margin-top: 2rem;
+        border: 2px solid yellowgreen;
+        padding: 1rem 2rem;
+        background-color: rgb(6, 6, 88);
+        min-height: 2rem;
+        width: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(160, 236, 8);
+        font-size: larger;
+        text-align: center;
+      }
+      #getQuiz {
+        min-height: 2rem;
+        width: 10rem;
+        margin-top: 1rem;
+        background-color: rgb(85, 85, 220);
+        padding: 1rem;
+        border-radius: 5rem;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="question"></h1>
+
+      <div class="options">
+        <button class="option"></button>
+        <button class="option"></button>
+        <button class="option"></button>
+        <button class="option"></button>
+      </div>
+
+      <div class="controlling-buttons">
+        <button id="nextQuestion" onclick="nextQuestion()">
+          Submit and Next
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    let currentQuestionNumber = 0;
+    let chosenOpt = "";
+    let correctOpt = "";
+    let score = 0;
+    let isQuizOver = false;
+    // this function will fetch quiz data from given api and set question and options layout
+    async function setQuestion() {
+        // getting quizId from localstorage
+        const quizId = localStorage.getItem("quizId")
+      // Getting quiz info from api
+      const quiz = await fetch(`https://myquizserver.onrender.com/getQuiz/${quizId}`)
+        .then((data) => {
+          return data.json();
+        })
+        .then((response) => {
+          return response.quiz;
+        });
+
+        // checking if currentQuestionNumber is exceeding quiz length or not
+        if (currentQuestionNumber >= quiz.length) {
+            isQuizOver = true;
+            alert(`Quiz is over and your Score is ${score}`)
+            return
+        }
+
+      // Setting question
+      document.querySelector(".question").textContent =
+        quiz[currentQuestionNumber].question;
+      document.querySelectorAll(".option")[0].textContent =
+        quiz[currentQuestionNumber].opt1;
+      document.querySelectorAll(".option")[1].textContent =
+        quiz[currentQuestionNumber].opt2;
+      document.querySelectorAll(".option")[2].textContent =
+        quiz[currentQuestionNumber].opt3;
+      document.querySelectorAll(".option")[3].textContent =
+        quiz[currentQuestionNumber].opt4;
+        correctOpt = quiz[currentQuestionNumber].correctOpt;
+      console.log(quiz[currentQuestionNumber].correctOpt);
+    }
+
+    // this function will keep track of score and take to next question 
+    function nextQuestion() {
+        // Before checking anything else let's check if quiz is over or not?
+        if(isQuizOver) {
+            alert(`Quiz is over and your Score is ${score}`)
+            return
+        }
+      // Before going to next question first checking if the chosen option is correct or not
+      if (chosenOpt == correctOpt) {
+        score++;
+    }
+    console.log(`Your Score is ${score}`);
+    currentQuestionNumber++
+    optionFieldColorChange();
+    setQuestion();
+    }
+
+
+    // this function will keep track of chosen option and change its color
+    document.querySelector(".options").addEventListener("click", (event) => {
+      optionFieldColorChange();
+      if (event.target.className != "options") {
+        event.target.style.backgroundColor = "rgb(208, 138, 8)";
+      }
+      chosenOpt = event.target.textContent;
+      
+    });
+
+    // this function will reset options background color
+    function optionFieldColorChange() {
+      for (i = 0; i < 4; ++i) {
+        document.querySelector(".options").children[i].style.backgroundColor = "wheat";
+      }
+    }
+    setQuestion();
+  </script>
 </html>
