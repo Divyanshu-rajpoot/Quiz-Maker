@@ -10,6 +10,10 @@ let gentor = document.getElementById("generator")
 let counter = document.getElementById("count")
 var count = 2;
 
+function selected(event){
+    correctoption.value = event.target.value;
+}
+
 
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 function generateString(length) {
@@ -53,4 +57,7 @@ addQuestion.addEventListener("click", () => {
     counter.innerText = `Q${count}`
     count++;
 })
-
+function copyToClipboard() {
+    navigator.clipboard.writeText(document.getElementsByTagName("h4")[1].textContent);
+    alert(`please copy the unique id (${quizid}) to attempt the quiz`)
+}

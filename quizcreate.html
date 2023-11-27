@@ -22,12 +22,12 @@
                 </div>
                 <div id="options">
                     <div id="first">
-                        <input type="text" name="" id="A" placeholder="ENTER OPTION A">
-                        <input type="text" name="" id="B" placeholder="ENTER OPTION B">
+                        <input ondblclick="selected(event)" type="text" name="" id="A" placeholder="ENTER OPTION A">
+                        <input ondblclick="selected(event)" type="text" name="" id="B" placeholder="ENTER OPTION B">
                     </div>
                     <div id="second">
-                        <input type="text" name="" id="C" placeholder="ENTER OPTION C">
-                        <input type="text" name="" id="D" placeholder="ENTER OPTION D">
+                        <input ondblclick="selected(event)" type="text" name="" id="C" placeholder="ENTER OPTION C">
+                        <input ondblclick="selected(event)" type="text" name="" id="D" placeholder="ENTER OPTION D">
                     </div>
                 </div>
                 <div id="correct">
@@ -45,9 +45,4 @@
     <script src="question.js"></script>
     
 </body>
-    <script>
-        function copyToClipboard() {
-            navigator.clipboard.writeText(document.getElementsByTagName("h4")[1].textContent);
-        }
-    </script>
 </html>
