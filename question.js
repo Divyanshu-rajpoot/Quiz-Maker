@@ -23,9 +23,6 @@ function generateString(length) {
 }                                            // this will genrate the unique id
 const quizid = generateString(4);
 idvalue.innerText = quizid;
-function copyToClipboard() {
-    navigator.clipboard.writeText();
-}
 
 
 addQuestion.addEventListener('click', async () => {
