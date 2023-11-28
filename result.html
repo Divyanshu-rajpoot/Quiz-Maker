@@ -11,7 +11,8 @@
 <body>
     <p>Congratulations!! <br>Here are your results.</p>
     <div class="result-container">
-        <h1>Quiz Result</h1>
+        <h1>Quiz Result :-</h1>
+        <h4>You Score <span id="scc"></span> out of <span id="out"></span></h4>
         <div id="score"></div>
         
     
@@ -19,9 +20,13 @@
     <script>
         const scored = localStorage.getItem("score")
         const questionNumber = localStorage.getItem("totalQuestions");
+        let scc = document.getElementById("scc");
+        let out = document.getElementById("out");
         const finalScore = Number(scored/questionNumber)*100;
         const dp = document.getElementById("score")
         dp.innerText = `${finalScore}%`
+        scc.innerText = scored
+        out.innerText = questionNumber
         
     </script>
 </body>
