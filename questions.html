@@ -4,99 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        position: relative;
-      }
-
-      body {
-        background-color: blue;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-image: url("https://as2.ftcdn.net/v2/jpg/02/56/16/25/1000_F_256162582_InY5MvcGtJFPqZIWj9tF6W43FHiQm8kv.jpg");
-        background-size:  cover ;
-        background-position: center ;
-      }
-
-      .container {
-        width: 70%;
-        min-height: 50vh;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        margin: 5rem auto;
-        border-radius: 3rem;
-        padding: 3rem 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        text-align: center;
-        backdrop-filter: blur(100px);
-      }
-
-      .options {
-        display: flex;
-        justify-content: space-evenly;
-        box-sizing: border-box;
-        flex-wrap: wrap;
-        margin: 2rem 0;
-      }
-
-      .options button {
-        min-height: 2.4rem;
-        width: 45%;
-        margin: 1.5rem 0;
-        text-align: center;
-        font-size: 2rem;
-        border-radius: 10px;
-        border: none;
-        background-color: rgb(201, 179, 245);
-      }
-
-      .controlling-buttons {
-        display: flex;
-        justify-content: space-around;
-        height: 3rem;
-      
-      }
-      .controlling-buttons button {
-        font-size: 1rem;
-        padding: 0.2rem 0.5rem;
-        border-radius: 10px;
-        background-color: black;
-        color: antiquewhite;
-        cursor: pointer;
-      }
-
-      #idContainer {
-        margin: auto;
-        margin-top: 2rem;
-        border: 2px solid yellowgreen;
-        padding: 1rem 2rem;
-        background-color: rgb(6, 6, 88);
-        min-height: 2rem;
-        width: 12rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgb(160, 236, 8);
-        font-size: larger;
-        text-align: center;
-      }
-      #getQuiz {
-        min-height: 2rem;
-        width: 10rem;
-        margin-top: 1rem;
-        background-color: rgb(85, 85, 220);
-        padding: 1rem;
-        border-radius: 5rem;
-        font-size: larger;
-      }
-    </style>
+    <link rel="stylesheet" href="questionsstyle.css">
   </head>
   <body>
+    <img src="https://images.unsplash.com/photo-1520916784675-1b97f1fc1c05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
     <div class="container">
       <h1 class="question"></h1>
 
@@ -115,6 +26,21 @@
       </div>
     </div>
   </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <script>
     let currentQuestionNumber = 0;
     let chosenOpt = "";
@@ -180,7 +106,7 @@
     document.querySelector(".options").addEventListener("click", (event) => {
       optionFieldColorChange();
       if (event.target.className != "options") {
-        event.target.style.backgroundColor = "rgb(208, 138, 8)";
+        event.target.style.backgroundColor = "#B0C0CF";
       }
       chosenOpt = event.target.textContent;
       
@@ -189,7 +115,8 @@
     // this function will reset options background color
     function optionFieldColorChange() {
       for (i = 0; i < 4; ++i) {
-        document.querySelector(".options").children[i].style.backgroundColor = "wheat";
+        document.querySelector(".options").children[i].style.backgroundColor = "#faebeb";
+        document.querySelector(".options").children[i].style.Color = "#000";
       }
     }
     setQuestion();
