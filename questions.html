@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
-    <link rel="stylesheet" href="questionsstyle.css">
+    <link rel="stylesheet" href="questionsstyle.css" />
   </head>
   <body>
-    <img src="https://images.unsplash.com/photo-1520916784675-1b97f1fc1c05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+    <img
+      src="https://images.unsplash.com/photo-1520916784675-1b97f1fc1c05?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt=""
+    />
     <div class="container">
       <h1 class="question"></h1>
 
@@ -27,101 +30,94 @@
     </div>
   </body>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script>
+    let Quiz;
     let currentQuestionNumber = 0;
     let chosenOpt = "";
     let correctOpt = "";
     let score = 0;
     let isQuizOver = false;
+
+    initialize();
+
+
     // this function will fetch quiz data from given api and set question and options layout
-    async function setQuestion() {
-        // getting quizId from localstorage
-        const quizId = localStorage.getItem("quizId")
-      // Getting quiz info from api
-      const quiz = await fetch(`https://myquizserver.onrender.com/getQuiz/${quizId}`)
-        .then((data) => {
-          return data.json();
-        })
-        .then((response) => {
-          return response.quiz;
-        });
+    async function initialize() {
+      const data = await getQuiz(); // Getting quiz info from api
 
-        // checking if currentQuestionNumber is exceeding quiz length or not
-        if (currentQuestionNumber >= quiz.length) {
-            isQuizOver = true;
-            localStorage.setItem("score", score);
-            localStorage.setItem("totalQuestions", currentQuestionNumber);
-            window.location.href = "result.html";
-            return
-        }
+      Quiz = data.quiz;
 
-      // Setting question
-      document.querySelector(".question").textContent =
-        quiz[currentQuestionNumber].question;
-      document.querySelectorAll(".option")[0].textContent =
-        quiz[currentQuestionNumber].opt1;
-      document.querySelectorAll(".option")[1].textContent =
-        quiz[currentQuestionNumber].opt2;
-      document.querySelectorAll(".option")[2].textContent =
-        quiz[currentQuestionNumber].opt3;
-      document.querySelectorAll(".option")[3].textContent =
-        quiz[currentQuestionNumber].opt4;
-        correctOpt = quiz[currentQuestionNumber].correctOpt;
-      console.log(quiz[currentQuestionNumber].correctOpt);
+      localStorage.setItem("score", 0) // setting score 0 on initialization
+      setQuestion();
+
     }
 
-    // this function will keep track of score and take to next question 
+    // this function will keep track of score and take to next question
     function nextQuestion() {
-        // Before checking anything else let's check if quiz is over or not?
-        if(isQuizOver) {
-            alert(`Quiz is over and your Score is ${score}`)
-            return
-        }
       // Before going to next question first checking if the chosen option is correct or not
       if (chosenOpt == correctOpt) {
         score++;
-    }
-    console.log(`Your Score is ${score}`);
-    currentQuestionNumber++
-    optionFieldColorChange();
-    setQuestion();
+        localStorage.setItem("score", score);
+      }
+      currentQuestionNumber++;
+      optionFieldColorChange();
+      setQuestion();
     }
 
-
-    // this function will keep track of chosen option and change its color
+    // this eventlistener will keep track of chosen option and change its color
     document.querySelector(".options").addEventListener("click", (event) => {
       optionFieldColorChange();
       if (event.target.className != "options") {
         event.target.style.backgroundColor = "#B0C0CF";
       }
       chosenOpt = event.target.textContent;
-      
     });
 
-    // this function will reset options background color
+    // this function will reset options background color.
     function optionFieldColorChange() {
       for (i = 0; i < 4; ++i) {
-        document.querySelector(".options").children[i].style.backgroundColor = "#faebeb";
+        document.querySelector(".options").children[i].style.backgroundColor =
+          "#faebeb";
         document.querySelector(".options").children[i].style.Color = "#000";
       }
     }
-    setQuestion();
-     function finalredict(){
-      location.href = "result.html"
-     }
+    
+    // this function will redirect to result page. 
+    function finalredict() {
+      localStorage.setItem("totalQuestions", Quiz.length)
+      window.location.href = "result.html";
+    }
+
+    // this function will get quiz information using api from server
+    async function getQuiz() {
+      const quizId = localStorage.getItem("quizId"); // getting quizId from localstorage
+      const response = await fetch(
+        `https://myquizserver.onrender.com/getQuiz/${quizId}`
+      );
+      const data = response.json();
+      return data;
+    }
+
+    // this function will set question details on the page by manipulating DOM
+    function setQuestion() {
+      // before setting question, checking if currentQuestionNumber is exceeding quiz length or not, if true, then redirect to result page
+      if (currentQuestionNumber >= Quiz.length) {
+        isQuizOver = true;
+        localStorage.setItem("score", score);
+        localStorage.setItem("totalQuestions", currentQuestionNumber);
+        finalredict();
+        return;
+      }
+
+      // Setting question
+      document.querySelector(".question").textContent = Quiz[currentQuestionNumber].question;
+      document.querySelectorAll(".option")[0].textContent = Quiz[currentQuestionNumber].opt1;
+      document.querySelectorAll(".option")[1].textContent = Quiz[currentQuestionNumber].opt2;
+      document.querySelectorAll(".option")[2].textContent = Quiz[currentQuestionNumber].opt3;
+      document.querySelectorAll(".option")[3].textContent = Quiz[currentQuestionNumber].opt4;
+      correctOpt = Quiz[currentQuestionNumber].correctOpt;
+
+      console.log(Quiz[currentQuestionNumber].correctOpt);
+    }
   </script>
 </html>
