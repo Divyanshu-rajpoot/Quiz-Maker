@@ -2,7 +2,7 @@ let pointer = document.getElementById('circle')
 let generator = document.getElementById("generate");
 let attempted = document.getElementById("attempt");
 attempted.addEventListener("click",()=>{
-    location.href = "attempt2.html"
+    location.href = "quizId.html"
 })
 generator.addEventListener("click",()=>{
     location.href = "quizcreate.html"

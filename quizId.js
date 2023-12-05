@@ -7,6 +7,11 @@ gsap.from("#login",{
 })
 
 function joinQuiz() {
+    if (!document.getElementById("quizid").value) {
+        console.log("Please enter a valid quiz ID");
+        alert("Please enter a quiz ID");
+        return;
+    }
     localStorage.clear()
     localStorage.setItem("quizId", `${document.getElementById("quizid").value}`)
     window.location.href = "./questions.html"
